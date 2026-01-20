@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Generated Teams</title>
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">AI Generated Research Teams</h2>
+
+    <!-- Display the raw AI response with preserved formatting -->
+    <pre class="bg-light p-4 border rounded" th:text="${teamGroups}">Loading AI teams...</pre>
+
+</div>
+</body>
+</html>
