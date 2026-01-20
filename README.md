@@ -9,15 +9,15 @@ get predictions.
 
 ## 🖼️ Project Screenshots
 
-<img src="images/login.png" width="30%"/>
-<img src="images/Student List.png" width="30%"/>
-<img src="images/Research Team Student.png" width="30%"/>
+<img src="image/login.png" width="30%"/>
+<img src="image/Student List.png" width="30%"/>
+<img src="image/Research Team Student.png" width="30%"/>
 
 ---
 
 ## 🤖 AI Prediction Feature
 
-<img src="images/AI Suggest Team Member.png" width="500"/>
+<img src="image/AI Suggest Team Member.png" width="500"/>
 
 The system uses AI-based prediction to help students understand
 their academic progress and future possibilities.
@@ -41,7 +41,7 @@ These connections are required for AI features and database operations.
 
 ### 🤖 OpenAI API Connection
 
-<img src="images/openai-connection.png" width="500"/>
+<img src="image/openai-connection.png" width="500"/>
 
 This project uses OpenAI services for AI-based prediction and analysis.
 To enable this feature, an OpenAI API key is required.
@@ -61,8 +61,8 @@ The API key is **not stored directly in the code** for security reasons.
 
 ### 🗄️ MongoDB Database Connection
 
-<img src="images/mongodb-connection.png" width="500"/>
-<img src="images/mongodb-connection1.png" width="500"/>
+<img src="image/mongodb-connection.png" width="500"/>
+<img src="image/mongodb-connection1.png" width="500"/>
 
 MongoDB is used as the main database for this system.
 It stores user records.
