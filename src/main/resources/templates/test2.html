@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Research Teams</title>
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Research Teams</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>Team</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>CGPA</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Show even if no data -->
+        <tr th:if="${teamGroups == null or teamGroups.size() == 0}">
+            <td colspan="4" class="text-center">No teams available</td>
+        </tr>
+
+        <!-- Iterate team groups -->
+        <tr th:each="group, groupStat : ${teamGroups}">
+            <td th:text="'Team ' + ${groupStat.index + 1}" rowspan="3" class="align-middle text-center fw-bold"></td>
+            <td th:text="${group[0].sId}">ID 1</td>
+            <td th:text="${group[0].name}">Name 1</td>
+            <td th:text="${group[0].cgpa}">CGPA 1</td>
+        </tr>
+        <tr th:each="group : ${teamGroups}" th:if="${group.size() > 1}">
+            <td th:text="${group[1].sId}">ID 2</td>
+            <td th:text="${group[1].name}">Name 2</td>
+            <td th:text="${group[1].cgpa}">CGPA 2</td>
+        </tr>
+        <tr th:each="group : ${teamGroups}" th:if="${group.size() > 2}">
+            <td th:text="${group[2].sId}">ID 3</td>
+            <td th:text="${group[2].name}">Name 3</td>
+            <td th:text="${group[2].cgpa}">CGPA 3</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

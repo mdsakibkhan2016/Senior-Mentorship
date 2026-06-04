@@ -1,0 +1,43 @@
+# --- Java / Maven ---
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+*.log
+*.jar
+*.war
+*.ear
+
+# --- IntelliJ IDEA ---
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# --- Eclipse ---
+.settings/
+.classpath
+.project
+.factorypath
+
+# --- VS Code ---
+.vscode/
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Secrets & Environment ---
+.env
+.env.*
+!.env.example
+application-local.properties
+secrets.properties
+*.key
+*.pem
+
+# --- Logs & Temp ---
+logs/
+*.tmp
+*.bak
