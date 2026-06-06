@@ -1,13 +1,18 @@
 package bd.edu.seu.seniormentorship.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "courses")
 public class Course {
+
     @Id
     private String id;
     private String code;
     private String title;
     private double credits;
+
+    public Course() {}
 
     public Course(String code, String title, double credits) {
         this.code = code;
@@ -15,35 +20,15 @@ public class Course {
         this.credits = credits;
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public String getCode() { return code; }
+    public void setCode(String code) { this.code = code; }
 
-    public String getCode() {
-        return code;
-    }
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public double getCredits() {
-        return credits;
-    }
-
-    public void setCredits(double credits) {
-        this.credits = credits;
-    }
+    public double getCredits() { return credits; }
+    public void setCredits(double credits) { this.credits = credits; }
 }

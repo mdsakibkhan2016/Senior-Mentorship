@@ -1,7 +1,6 @@
 package bd.edu.seu.seniormentorship.repository;
 
 import bd.edu.seu.seniormentorship.model.Course;
-
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

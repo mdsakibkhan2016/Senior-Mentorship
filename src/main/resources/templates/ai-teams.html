@@ -2,16 +2,71 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>AI Generated Teams</title>
-    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+    <title>AI Generated Research Teams</title>
+    <link rel="stylesheet" th:href="@{/libs/bootstrap/dist/css/bootstrap.min.css}">
+    <style>
+        body { background-color: #f0f2f5; }
+        .team-card { border-left: 5px solid #0d6efd; border-radius: 8px; }
+        .card-header { font-size: 1.1rem; }
+    </style>
 </head>
 <body>
-<div class="container mt-5">
-    <h2 class="text-center mb-4">AI Generated Research Teams</h2>
+<div class="container mt-5 mb-5">
 
-    <!-- Display the raw AI response with preserved formatting -->
-    <pre class="bg-light p-4 border rounded" th:text="${teamGroups}">Loading AI teams...</pre>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">
+            <span class="badge bg-primary me-2">AI</span>
+            Gemini Generated Research Teams
+        </h2>
+        <a href="/research" class="btn btn-outline-secondary">← Back to Research Team</a>
+    </div>
 
+    <!-- Error Message -->
+    <div th:if="${errorMessage != null and !#strings.isEmpty(errorMessage)}"
+         class="alert alert-danger" role="alert">
+        <strong>Error:</strong> <span th:text="${errorMessage}"></span>
+    </div>
+
+    <!-- Empty State -->
+    <div th:if="${#lists.isEmpty(aiTeams)}" class="alert alert-warning">
+        No teams were generated. Please make sure students are added to the Research Team pool first.
+    </div>
+
+    <!-- Team Cards -->
+    <div th:unless="${#lists.isEmpty(aiTeams)}"
+         class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+        <div class="col" th:each="team, teamStat : ${aiTeams}">
+            <div class="card h-100 shadow-sm team-card">
+                <div class="card-header bg-primary text-white fw-bold">
+                    Team <span th:text="${teamStat.count}">1</span>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover table-sm mb-0">
+                        <thead class="table-light">
+                        <tr>
+                            <th class="ps-3">Student ID</th>
+                            <th>Name</th>
+                            <th class="pe-3">CGPA</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="student : ${team}">
+                            <td class="ps-3" th:text="${student.sId}">S001</td>
+                            <td th:text="${student.name}">John Doe</td>
+                            <td class="pe-3" th:text="${#numbers.formatDecimal(student.cgpa,1,2)}">3.50</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer text-muted small text-end pe-3">
+                    Total CGPA:
+                    <strong th:text="${#numbers.formatDecimal(#aggregates.sum(team.![cgpa]),1,2)}">0.00</strong>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
 </body>
 </html>
